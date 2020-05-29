@@ -56,12 +56,7 @@ function main (form){
     var n = 55 - day_n - month_numd*2;
     alert(n);
     
-function goToPage()
-{
-	document.html = 'audio.html';
-}
 
-alert(n);
     
     
 };
