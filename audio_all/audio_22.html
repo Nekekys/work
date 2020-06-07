@@ -1,0 +1,201 @@
+<html  lang='ru'>
+<head> 
+    <meta charset="UTF-8">
+    <title>title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style/style_audio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="main_audio">
+   <div class="content_audio">
+       <div class="body_audio">
+           <h3>Прослушайте 3 аудиофайла </h3>
+           <h5>о кармических задачах по вашей дате рождения</h5>
+           <div class="audio_play audio_play_1">
+  
+               <a href="##" id="run_1">
+                   <img src="../style/img/volume.png" alt="">
+               </a>
+               <a href="##" id="pause_1">
+                   <img src="../style/img/pause_main.png" alt="">
+               </a>
+               <a href="##" id="no_vol_1">
+                   <img src="../style/img/bezzzzzzzzz.png" alt="">
+               </a>
+           </div>
+           <div class="audio_play audio_play_2">
+              <a href="##" id="run_2">
+                   <img src="../style/img/volume.png" alt="">
+               </a>
+               <a href="##" id="pause_2">
+                   <img src="../style/img/pause_main.png" alt="">
+               </a>
+               <a href="##" id="no_vol_2">
+                   <img src="../style/img/bezzzzzzzzz.png" alt="">
+               </a>
+           </div>
+           <div class="audio_play audio_play_3">
+               <a href="##" id="run_3">
+                   <img src="../style/img/volume.png" alt="">
+               </a>
+               <a href="##" id="pause_3">
+                   <img src="../style/img/pause_main.png" alt="">
+               </a>
+               <a href="##" id="no_vol_3">
+                   <img src="../style/img/bezzzzzzzzz.png" alt="">
+               </a>
+
+           </div>
+           <div class="audio_btn">
+               <a href="##">Написать отзыв в Директ</a>
+               <a href="../index.html">Узнать еще одну дату</a>
+           </div>
+       </div>
+   </div>
+</div>   
+   
+   <div class="positionBar" id="positionBar_1"></div>
+   <div class="positionBar" id="positionBar_2"></div>
+   <div class="positionBar" id="positionBar_3"></div>
+   
+   <audio src="../style/audio/static_1.m4a"  type="audio/m4a"  id="audio_1" onTimeUpdate="progressUpdate_1()"></audio>
+    <audio src="../style/audio/static_2.m4a"  type="audio/m4a"  id="audio_2" onTimeUpdate="progressUpdate_2()"></audio>
+    <audio src="../style/audio/22.m4a"  type="audio/m4a"  id="audio_3" onTimeUpdate="progressUpdate_3()"></audio>
+
+    
+<script type="text/javascript" src="../JS/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    var audio_1 = document.getElementById('audio_1');
+    var audio_2 = document.getElementById('audio_2');
+    var audio_3 = document.getElementById('audio_3');
+    
+    var check_1 = true;
+    var check_2 = true;
+    var check_3 = true;
+    
+    $('#run_1').click(function(){
+        audio_1.play();
+        $('#run_1 img').css('opacity','1');
+        $('#pause_1 img').css('opacity','0.4');
+        audio_2.pause();
+        audio_3.pause();
+        $('#run_2 img').css('opacity','0.4');
+        $('#run_3 img').css('opacity','0.4');
+        $('#pause_2 img').css('opacity','0.4');
+        $('#pause_3 img').css('opacity','0.4');
+        
+        $('#positionBar_1').css('opacity','1');
+        $('#positionBar_2').css('opacity','0');
+        $('#positionBar_3').css('opacity','0');
+    });
+    $('#pause_1').click(function(){
+        audio_1.pause();
+        $('#pause_1 img').css('opacity','1');
+        $('#run_1 img').css('opacity','0.4');
+         $('#pause_2 img').css('opacity','0.4');
+        $('#pause_3 img').css('opacity','0.4');
+    });
+    $('#no_vol_1').click(function(){
+        if(check_1){
+            audio_1.muted = true;
+            $('#no_vol_1 img').css('opacity','1');
+            check_1 = false;
+        }else{
+            audio_1.muted = false;
+            $('#no_vol_1 img').css('opacity','0.4');
+            check_1 = true;
+        }
+    });
+    
+    
+    function progressUpdate_1() {
+        var positionBar = document.getElementById("positionBar_1");
+        positionBar.style.width = (audio_1.currentTime / audio_1.duration * 100)  + "%";
+    }
+    
+    $('#run_2').click(function(){
+        audio_2.play();
+        $('#run_2 img').css('opacity','1');
+        $('#pause_2 img').css('opacity','0.4');
+        audio_1.pause();
+        audio_3.pause();
+        $('#run_1 img').css('opacity','0.4');
+        $('#run_3 img').css('opacity','0.4');
+        $('#pause_1 img').css('opacity','0.4');
+        $('#pause_3 img').css('opacity','0.4');
+        
+        $('#positionBar_1').css('opacity','0');
+        $('#positionBar_2').css('opacity','1');
+        $('#positionBar_3').css('opacity','0');
+    });
+    $('#pause_2').click(function(){
+        audio_2.pause();
+        $('#pause_2 img').css('opacity','1');
+        $('#run_2 img').css('opacity','0.4');
+         $('#pause_1 img').css('opacity','0.4');
+        $('#pause_3 img').css('opacity','0.4');
+    });
+    $('#no_vol_2').click(function(){
+        if(check_2){
+            audio_2.muted = true;
+            $('#no_vol_2 img').css('opacity','1');
+            check_2 = false;
+        }else{
+            audio_2.muted = false;
+            $('#no_vol_2 img').css('opacity','0.4');
+            check_2 = true;
+        }
+    });
+    
+    
+    function progressUpdate_2() {
+        var positionBar = document.getElementById("positionBar_2");
+        positionBar.style.width = (audio_2.currentTime / audio_2.duration * 100)  + "%";
+    }
+    
+    $('#run_3').click(function(){
+        audio_3.play();
+        $('#run_3 img').css('opacity','1');
+        $('#pause_3 img').css('opacity','0.4');
+        audio_2.pause();
+        audio_1.pause();
+        $('#run_2 img').css('opacity','0.4');
+        $('#run_1 img').css('opacity','0.4');
+        $('#pause_2 img').css('opacity','0.4');
+        $('#pause_1 img').css('opacity','0.4');
+        
+        $('#positionBar_1').css('opacity','0');
+        $('#positionBar_2').css('opacity','0');
+        $('#positionBar_3').css('opacity','1');
+    });
+    $('#pause_3').click(function(){
+        audio_3.pause();
+        $('#pause_3 img').css('opacity','1');
+        $('#run_3 img').css('opacity','0.4');
+         $('#pause_2 img').css('opacity','0.4');
+        $('#pause_1 img').css('opacity','0.4');
+    });
+    $('#no_vol_3').click(function(){
+        if(check_3){
+            audio_3.muted = true;
+            $('#no_vol_3 img').css('opacity','1');
+            check_3 = false;
+        }else{
+            audio_3.muted = false;
+            $('#no_vol_3 img').css('opacity','0.4');
+            check_3 = true;
+        }
+    });
+    
+    
+    function progressUpdate_3() {
+        var positionBar = document.getElementById("positionBar_3");
+        positionBar.style.width = (audio_3.currentTime / audio_3.duration * 100)  + "%";
+    }
+    
+</script>
+
+</body>
+</html>

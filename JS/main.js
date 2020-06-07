@@ -3,7 +3,7 @@ function main (form){
     var day = form.day.value;
     var month = form.month.value;
     var year = form.year.value;
-    
+    var tele = form.telefon.value;
     
     
     if( ( (day == 'День')&(month == 'Месяц') ) || ( (day == 'День')  & (year == 'Год') ) || ( (month == 'Месяц')  & (year == 'Год') )  ){
@@ -26,7 +26,10 @@ function main (form){
          return false;
     }
     
-    
+    if((tele.length > 13) || (tele.length < 10)){
+        alert("Не правильные данные");
+        return false;
+    }
     
     var month_numd = 0; 
     var day_n = Number(day);
@@ -54,9 +57,10 @@ function main (form){
     
 
     var n = 55 - day_n - month_numd*2;
-    alert(n);
-    
-
+    //window.open('audio_all/audio_'+n+'.html');
+    var herf_main = 'audio_all/audio_'+n+'.html';
+    form.action = herf_main;
+  
     
     
 };
